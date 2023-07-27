@@ -121,7 +121,7 @@ fn type_of<T>(_: &T) -> String {
 ```rust,editable
 
 fn main() {
-    assert!(0.1+0.2==0.3);
+    assert!(0.1f12+0.2f12==0.3);
 
     println!("Success!");
 }

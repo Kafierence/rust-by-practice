@@ -1,7 +1,11 @@
 # Functions
-1. 🌟🌟🌟
-```rust,editable
 
+1. 🌟🌟🌟
+
+```rust,editable
+/***
+ * Setting return value
+*/
 fn main() {
     // Don't modify the following two lines!
     let (x, y) = (1, 2);
@@ -12,13 +16,14 @@ fn main() {
     println!("Success!");
 }
 
-fn sum(x, y: i32) {
-    x + y;
+fn sum(x: i32, y: i32) -> i32 {
+    x + y
 }
+
 ```
 
-
 2. 🌟
+
 ```rust,editable
 fn main() {
    print();
@@ -29,7 +34,6 @@ fn print() -> i32 {
    println!("Success!");
 }
 ```
-
 
 3. 🌟🌟🌟
 
@@ -44,46 +48,44 @@ fn main() {
 
 fn never_return() -> ! {
     // Implement this function, don't modify the fn signatures
-    
+    panic!("Not return");
 }
+
 ```
 
-### Diverging functions 
+### Diverging functions
+
 Diverging functions never return to the caller, so they may be used in places where a value of any type is expected.
 
 4. 🌟🌟
-```rust,editable
 
+```rust,editable
 fn main() {
+    get_option(1);
     println!("Success!");
 }
 
-fn get_option(tp: u8) -> Option<i32> {
+fn get_option(tp: u8) -> i32 {
     match tp {
-        1 => {
-            // TODO
-        }
-        _ => {
-            // TODO
-        }
+        1 => return 1,
+        _ => never_return_fn(),
     };
-    
-    // Rather than returning a None, we use a diverging function instead
-    never_return_fn()
 }
 
 // IMPLEMENT this function in THREE ways
 fn never_return_fn() -> ! {
-    
+    print!("Nothing is return guy");
+    panic!("Please stop")
 }
 ```
 
 5. 🌟🌟
+
 ```rust,editable
 
 fn main() {
     // FILL in the blank
-    let b = __;
+    let b = true;
 
     let _v = match b {
         true => 1,
